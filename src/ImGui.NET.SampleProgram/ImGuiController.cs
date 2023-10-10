@@ -5,6 +5,7 @@ using System.Reflection;
 using System.IO;
 using Veldrid;
 using System.Runtime.CompilerServices;
+using ImPlotNET;
 
 namespace ImGuiNET
 {
@@ -59,7 +60,10 @@ namespace ImGuiNET
             _windowWidth = width;
             _windowHeight = height;
 
-            ImGui.CreateContext();
+            var imGuiContext = ImGui.CreateContext();
+            ImPlot.CreateContext();
+            ImPlot.SetImGuiContext(imGuiContext);
+
             var io = ImGui.GetIO();
             io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
             io.ConfigFlags |= ImGuiConfigFlags.NavEnableKeyboard |

@@ -83,6 +83,10 @@ namespace ImGuiNET
 
         private static unsafe void SubmitUI()
         {
+
+            // show implot demo window
+            ImPlot.ShowDemoWindow();
+
             // Demo code adapted from the official Dear ImGui demo program:
             // https://github.com/ocornut/imgui/blob/master/examples/example_win32_directx11/main.cpp#L172
 

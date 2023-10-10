@@ -8,7 +8,11 @@ namespace ImPlotNET
 {
     public static unsafe partial class ImPlot
     {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static ImPlotColormap AddColormap(ReadOnlySpan<char> name, ref Vector4 cols, int size)
+#else
         public static ImPlotColormap AddColormap(string name, ref Vector4 cols, int size)
+#endif
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -39,7 +43,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static ImPlotColormap AddColormap(ReadOnlySpan<char> name, ref Vector4 cols, int size, bool qual)
+#else
         public static ImPlotColormap AddColormap(string name, ref Vector4 cols, int size, bool qual)
+#endif
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -70,7 +78,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static ImPlotColormap AddColormap(ReadOnlySpan<char> name, ref uint cols, int size)
+#else
         public static ImPlotColormap AddColormap(string name, ref uint cols, int size)
+#endif
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -101,7 +113,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static ImPlotColormap AddColormap(ReadOnlySpan<char> name, ref uint cols, int size, bool qual)
+#else
         public static ImPlotColormap AddColormap(string name, ref uint cols, int size, bool qual)
+#endif
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -144,7 +160,11 @@ namespace ImPlotNET
             byte native_round = round ? (byte)1 : (byte)0;
             ImPlotNative.ImPlot_Annotation_Bool(x, y, col, pix_offset, native_clamp, native_round);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void Annotation(double x, double y, Vector4 col, Vector2 pix_offset, bool clamp, ReadOnlySpan<char> fmt)
+#else
         public static void Annotation(double x, double y, Vector4 col, Vector2 pix_offset, bool clamp, string fmt)
+#endif
         {
             byte native_clamp = clamp ? (byte)1 : (byte)0;
             byte* native_fmt;
@@ -171,7 +191,11 @@ namespace ImPlotNET
                 Util.Free(native_fmt);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginAlignedPlots(ReadOnlySpan<char> group_id)
+#else
         public static bool BeginAlignedPlots(string group_id)
+#endif
         {
             byte* native_group_id;
             int group_id_byteCount = 0;
@@ -199,7 +223,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginAlignedPlots(ReadOnlySpan<char> group_id, bool vertical)
+#else
         public static bool BeginAlignedPlots(string group_id, bool vertical)
+#endif
         {
             byte* native_group_id;
             int group_id_byteCount = 0;
@@ -238,7 +266,11 @@ namespace ImPlotNET
             byte ret = ImPlotNative.ImPlot_BeginDragDropSourceAxis(axis, flags);
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginDragDropSourceItem(ReadOnlySpan<char> label_id)
+#else
         public static bool BeginDragDropSourceItem(string label_id)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -266,7 +298,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginDragDropSourceItem(ReadOnlySpan<char> label_id, ImGuiDragDropFlags flags)
+#else
         public static bool BeginDragDropSourceItem(string label_id, ImGuiDragDropFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -319,7 +355,11 @@ namespace ImPlotNET
             byte ret = ImPlotNative.ImPlot_BeginDragDropTargetPlot();
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginLegendPopup(ReadOnlySpan<char> label_id)
+#else
         public static bool BeginLegendPopup(string label_id)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -347,7 +387,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginLegendPopup(ReadOnlySpan<char> label_id, ImGuiMouseButton mouse_button)
+#else
         public static bool BeginLegendPopup(string label_id, ImGuiMouseButton mouse_button)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -374,7 +418,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginPlot(ReadOnlySpan<char> title_id)
+#else
         public static bool BeginPlot(string title_id)
+#endif
         {
             byte* native_title_id;
             int title_id_byteCount = 0;
@@ -403,7 +451,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginPlot(ReadOnlySpan<char> title_id, Vector2 size)
+#else
         public static bool BeginPlot(string title_id, Vector2 size)
+#endif
         {
             byte* native_title_id;
             int title_id_byteCount = 0;
@@ -431,7 +483,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginPlot(ReadOnlySpan<char> title_id, Vector2 size, ImPlotFlags flags)
+#else
         public static bool BeginPlot(string title_id, Vector2 size, ImPlotFlags flags)
+#endif
         {
             byte* native_title_id;
             int title_id_byteCount = 0;
@@ -458,7 +514,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginSubplots(ReadOnlySpan<char> title_id, int rows, int cols, Vector2 size)
+#else
         public static bool BeginSubplots(string title_id, int rows, int cols, Vector2 size)
+#endif
         {
             byte* native_title_id;
             int title_id_byteCount = 0;
@@ -488,7 +548,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginSubplots(ReadOnlySpan<char> title_id, int rows, int cols, Vector2 size, ImPlotSubplotFlags flags)
+#else
         public static bool BeginSubplots(string title_id, int rows, int cols, Vector2 size, ImPlotSubplotFlags flags)
+#endif
         {
             byte* native_title_id;
             int title_id_byteCount = 0;
@@ -517,7 +581,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginSubplots(ReadOnlySpan<char> title_id, int rows, int cols, Vector2 size, ImPlotSubplotFlags flags, ref float row_ratios)
+#else
         public static bool BeginSubplots(string title_id, int rows, int cols, Vector2 size, ImPlotSubplotFlags flags, ref float row_ratios)
+#endif
         {
             byte* native_title_id;
             int title_id_byteCount = 0;
@@ -548,7 +616,11 @@ namespace ImPlotNET
                 return ret != 0;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool BeginSubplots(ReadOnlySpan<char> title_id, int rows, int cols, Vector2 size, ImPlotSubplotFlags flags, ref float row_ratios, ref float col_ratios)
+#else
         public static bool BeginSubplots(string title_id, int rows, int cols, Vector2 size, ImPlotSubplotFlags flags, ref float row_ratios, ref float col_ratios)
+#endif
         {
             byte* native_title_id;
             int title_id_byteCount = 0;
@@ -586,7 +658,11 @@ namespace ImPlotNET
             byte* native_plot_title_id = null;
             ImPlotNative.ImPlot_BustColorCache(native_plot_title_id);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void BustColorCache(ReadOnlySpan<char> plot_title_id)
+#else
         public static void BustColorCache(string plot_title_id)
+#endif
         {
             byte* native_plot_title_id;
             int plot_title_id_byteCount = 0;
@@ -616,7 +692,11 @@ namespace ImPlotNET
         {
             ImPlotNative.ImPlot_CancelPlotSelection();
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ColormapButton(ReadOnlySpan<char> label)
+#else
         public static bool ColormapButton(string label)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -645,7 +725,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ColormapButton(ReadOnlySpan<char> label, Vector2 size)
+#else
         public static bool ColormapButton(string label, Vector2 size)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -673,7 +757,11 @@ namespace ImPlotNET
             }
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ColormapButton(ReadOnlySpan<char> label, Vector2 size, ImPlotColormap cmap)
+#else
         public static bool ColormapButton(string label, Vector2 size, ImPlotColormap cmap)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -704,7 +792,11 @@ namespace ImPlotNET
         {
             ImPlotNative.ImPlot_ColormapIcon(cmap);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void ColormapScale(ReadOnlySpan<char> label, double scale_min, double scale_max)
+#else
         public static void ColormapScale(string label, double scale_min, double scale_max)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -751,7 +843,11 @@ namespace ImPlotNET
                 Util.Free(native_format);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void ColormapScale(ReadOnlySpan<char> label, double scale_min, double scale_max, Vector2 size)
+#else
         public static void ColormapScale(string label, double scale_min, double scale_max, Vector2 size)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -797,7 +893,11 @@ namespace ImPlotNET
                 Util.Free(native_format);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void ColormapScale(ReadOnlySpan<char> label, double scale_min, double scale_max, Vector2 size, ReadOnlySpan<char> format)
+#else
         public static void ColormapScale(string label, double scale_min, double scale_max, Vector2 size, string format)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -847,7 +947,11 @@ namespace ImPlotNET
                 Util.Free(native_format);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void ColormapScale(ReadOnlySpan<char> label, double scale_min, double scale_max, Vector2 size, ReadOnlySpan<char> format, ImPlotColormapScaleFlags flags)
+#else
         public static void ColormapScale(string label, double scale_min, double scale_max, Vector2 size, string format, ImPlotColormapScaleFlags flags)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -896,7 +1000,11 @@ namespace ImPlotNET
                 Util.Free(native_format);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void ColormapScale(ReadOnlySpan<char> label, double scale_min, double scale_max, Vector2 size, ReadOnlySpan<char> format, ImPlotColormapScaleFlags flags, ImPlotColormap cmap)
+#else
         public static void ColormapScale(string label, double scale_min, double scale_max, Vector2 size, string format, ImPlotColormapScaleFlags flags, ImPlotColormap cmap)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -944,7 +1052,11 @@ namespace ImPlotNET
                 Util.Free(native_format);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ColormapSlider(ReadOnlySpan<char> label, ref float t)
+#else
         public static bool ColormapSlider(string label, ref float t)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -994,7 +1106,11 @@ namespace ImPlotNET
                 return ret != 0;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ColormapSlider(ReadOnlySpan<char> label, ref float t, out Vector4 @out)
+#else
         public static bool ColormapSlider(string label, ref float t, out Vector4 @out)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -1046,7 +1162,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ColormapSlider(ReadOnlySpan<char> label, ref float t, out Vector4 @out, ReadOnlySpan<char> format)
+#else
         public static bool ColormapSlider(string label, ref float t, out Vector4 @out, string format)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -1102,7 +1222,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ColormapSlider(ReadOnlySpan<char> label, ref float t, out Vector4 @out, ReadOnlySpan<char> format, ImPlotColormap cmap)
+#else
         public static bool ColormapSlider(string label, ref float t, out Vector4 @out, string format, ImPlotColormap cmap)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -1338,7 +1462,11 @@ namespace ImPlotNET
             int ret = ImPlotNative.ImPlot_GetColormapCount();
             return ret;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static ImPlotColormap GetColormapIndex(ReadOnlySpan<char> name)
+#else
         public static ImPlotColormap GetColormapIndex(string name)
+#endif
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -1409,21 +1537,24 @@ namespace ImPlotNET
         }
         public static ImPlotRect GetPlotLimits()
         {
+            ImPlotRect __retval;
             ImAxis x_axis = (ImAxis)(-1);
             ImAxis y_axis = (ImAxis)(-1);
-            ImPlotRect ret = ImPlotNative.ImPlot_GetPlotLimits(x_axis, y_axis);
-            return ret;
+            ImPlotNative.ImPlot_GetPlotLimits(&__retval, x_axis, y_axis);
+            return __retval;
         }
         public static ImPlotRect GetPlotLimits(ImAxis x_axis)
         {
+            ImPlotRect __retval;
             ImAxis y_axis = (ImAxis)(-1);
-            ImPlotRect ret = ImPlotNative.ImPlot_GetPlotLimits(x_axis, y_axis);
-            return ret;
+            ImPlotNative.ImPlot_GetPlotLimits(&__retval, x_axis, y_axis);
+            return __retval;
         }
         public static ImPlotRect GetPlotLimits(ImAxis x_axis, ImAxis y_axis)
         {
-            ImPlotRect ret = ImPlotNative.ImPlot_GetPlotLimits(x_axis, y_axis);
-            return ret;
+            ImPlotRect __retval;
+            ImPlotNative.ImPlot_GetPlotLimits(&__retval, x_axis, y_axis);
+            return __retval;
         }
         public static ImPlotPoint GetPlotMousePos()
         {
@@ -1454,21 +1585,24 @@ namespace ImPlotNET
         }
         public static ImPlotRect GetPlotSelection()
         {
+            ImPlotRect __retval;
             ImAxis x_axis = (ImAxis)(-1);
             ImAxis y_axis = (ImAxis)(-1);
-            ImPlotRect ret = ImPlotNative.ImPlot_GetPlotSelection(x_axis, y_axis);
-            return ret;
+            ImPlotNative.ImPlot_GetPlotSelection(&__retval, x_axis, y_axis);
+            return __retval;
         }
         public static ImPlotRect GetPlotSelection(ImAxis x_axis)
         {
+            ImPlotRect __retval;
             ImAxis y_axis = (ImAxis)(-1);
-            ImPlotRect ret = ImPlotNative.ImPlot_GetPlotSelection(x_axis, y_axis);
-            return ret;
+            ImPlotNative.ImPlot_GetPlotSelection(&__retval, x_axis, y_axis);
+            return __retval;
         }
         public static ImPlotRect GetPlotSelection(ImAxis x_axis, ImAxis y_axis)
         {
-            ImPlotRect ret = ImPlotNative.ImPlot_GetPlotSelection(x_axis, y_axis);
-            return ret;
+            ImPlotRect __retval;
+            ImPlotNative.ImPlot_GetPlotSelection(&__retval, x_axis, y_axis);
+            return __retval;
         }
         public static Vector2 GetPlotSize()
         {
@@ -1508,7 +1642,11 @@ namespace ImPlotNET
             byte ret = ImPlotNative.ImPlot_IsAxisHovered(axis);
             return ret != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool IsLegendEntryHovered(ReadOnlySpan<char> label_id)
+#else
         public static bool IsLegendEntryHovered(string label_id)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3046,7 +3184,11 @@ namespace ImPlotNET
                 ImPlotNative.ImPlot_PlotBarGroups_U64Ptr(native_label_ids, native_values, item_count, group_count, group_size, shift, flags);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float values, int count)
+#else
         public static void PlotBars(string label_id, ref float values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3080,7 +3222,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref float values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3113,7 +3259,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref float values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3145,7 +3295,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref float values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3176,7 +3330,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref float values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3206,7 +3364,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref float values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3235,7 +3397,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double values, int count)
+#else
         public static void PlotBars(string label_id, ref double values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3269,7 +3435,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref double values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3302,7 +3472,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref double values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3334,7 +3508,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref double values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3365,7 +3543,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref double values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3395,7 +3577,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref double values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3424,7 +3610,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte values, int count)
+#else
         public static void PlotBars(string label_id, ref sbyte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3458,7 +3648,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref sbyte values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3491,7 +3685,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref sbyte values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3523,7 +3721,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref sbyte values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3554,7 +3756,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref sbyte values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3584,7 +3790,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref sbyte values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3613,7 +3823,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte values, int count)
+#else
         public static void PlotBars(string label_id, ref byte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3647,7 +3861,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref byte values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3680,7 +3898,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref byte values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3712,7 +3934,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref byte values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3743,7 +3969,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref byte values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3773,7 +4003,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref byte values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3802,7 +4036,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short values, int count)
+#else
         public static void PlotBars(string label_id, ref short values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3836,7 +4074,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref short values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3869,7 +4111,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref short values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3901,7 +4147,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref short values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3932,7 +4182,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref short values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3962,7 +4216,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref short values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -3991,7 +4249,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort values, int count)
+#else
         public static void PlotBars(string label_id, ref ushort values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4025,7 +4287,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref ushort values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4058,7 +4324,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref ushort values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4090,7 +4360,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref ushort values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4121,7 +4395,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref ushort values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4151,7 +4429,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref ushort values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4180,7 +4462,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int values, int count)
+#else
         public static void PlotBars(string label_id, ref int values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4214,7 +4500,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref int values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4247,7 +4537,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref int values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4279,7 +4573,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref int values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4310,7 +4608,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref int values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4340,7 +4642,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref int values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4369,7 +4675,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint values, int count)
+#else
         public static void PlotBars(string label_id, ref uint values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4403,7 +4713,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref uint values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4436,7 +4750,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref uint values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4468,7 +4786,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref uint values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4499,7 +4821,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref uint values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4529,7 +4855,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref uint values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4558,7 +4888,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long values, int count)
+#else
         public static void PlotBars(string label_id, ref long values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4592,7 +4926,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref long values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4625,7 +4963,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref long values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4657,7 +4999,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref long values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4688,7 +5034,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref long values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4718,7 +5068,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref long values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4747,7 +5101,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong values, int count)
+#else
         public static void PlotBars(string label_id, ref ulong values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4781,7 +5139,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong values, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref ulong values, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4814,7 +5176,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong values, int count, double bar_size, double shift)
+#else
         public static void PlotBars(string label_id, ref ulong values, int count, double bar_size, double shift)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4846,7 +5212,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref ulong values, int count, double bar_size, double shift, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4877,7 +5247,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref ulong values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4907,7 +5281,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref ulong values, int count, double bar_size, double shift, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4936,7 +5314,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref float xs, ref float ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -4971,7 +5353,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref float xs, ref float ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5005,7 +5391,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref float xs, ref float ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5038,7 +5428,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref float xs, ref float ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5070,7 +5464,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref double xs, ref double ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5105,7 +5503,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref double xs, ref double ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5139,7 +5541,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref double xs, ref double ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5172,7 +5578,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref double xs, ref double ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5204,7 +5614,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref sbyte xs, ref sbyte ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5239,7 +5653,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref sbyte xs, ref sbyte ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5273,7 +5691,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref sbyte xs, ref sbyte ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5306,7 +5728,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref sbyte xs, ref sbyte ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5338,7 +5764,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref byte xs, ref byte ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5373,7 +5803,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref byte xs, ref byte ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5407,7 +5841,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref byte xs, ref byte ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5440,7 +5878,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref byte xs, ref byte ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5472,7 +5914,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref short xs, ref short ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5507,7 +5953,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref short xs, ref short ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5541,7 +5991,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref short xs, ref short ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5574,7 +6028,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref short xs, ref short ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5606,7 +6064,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref ushort xs, ref ushort ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5641,7 +6103,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref ushort xs, ref ushort ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5675,7 +6141,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref ushort xs, ref ushort ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5708,7 +6178,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref ushort xs, ref ushort ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5740,7 +6214,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref int xs, ref int ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5775,7 +6253,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref int xs, ref int ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5809,7 +6291,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref int xs, ref int ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5842,7 +6328,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref int xs, ref int ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5874,7 +6364,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref uint xs, ref uint ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5909,7 +6403,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref uint xs, ref uint ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5943,7 +6441,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref uint xs, ref uint ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -5976,7 +6478,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref uint xs, ref uint ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6008,7 +6514,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref long xs, ref long ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6043,7 +6553,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref long xs, ref long ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6077,7 +6591,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref long xs, ref long ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6110,7 +6628,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref long xs, ref long ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6142,7 +6664,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double bar_size)
+#else
         public static void PlotBars(string label_id, ref ulong xs, ref ulong ys, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6177,7 +6703,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBars(string label_id, ref ulong xs, ref ulong ys, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6211,7 +6741,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#else
         public static void PlotBars(string label_id, ref ulong xs, ref ulong ys, int count, double bar_size, ImPlotBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6244,7 +6778,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#else
         public static void PlotBars(string label_id, ref ulong xs, ref ulong ys, int count, double bar_size, ImPlotBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6276,7 +6814,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBarsG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count, double bar_size)
+#else
         public static void PlotBarsG(string label_id, IntPtr getter, IntPtr data, int count, double bar_size)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6304,7 +6846,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotBarsG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count, double bar_size, ImPlotBarsFlags flags)
+#else
         public static void PlotBarsG(string label_id, IntPtr getter, IntPtr data, int count, double bar_size, ImPlotBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6331,7 +6877,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count)
+#else
         public static void PlotDigital(string label_id, ref float xs, ref float ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6366,7 +6916,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref float xs, ref float ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6400,7 +6954,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref float xs, ref float ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6433,7 +6991,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref float xs, ref float ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6465,7 +7027,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count)
+#else
         public static void PlotDigital(string label_id, ref double xs, ref double ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6500,7 +7066,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref double xs, ref double ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6534,7 +7104,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref double xs, ref double ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6567,7 +7141,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref double xs, ref double ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6599,7 +7177,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count)
+#else
         public static void PlotDigital(string label_id, ref sbyte xs, ref sbyte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6634,7 +7216,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6668,7 +7254,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6701,7 +7291,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6733,7 +7327,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count)
+#else
         public static void PlotDigital(string label_id, ref byte xs, ref byte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6768,7 +7366,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref byte xs, ref byte ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6802,7 +7404,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref byte xs, ref byte ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6835,7 +7441,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref byte xs, ref byte ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6867,7 +7477,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count)
+#else
         public static void PlotDigital(string label_id, ref short xs, ref short ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6902,7 +7516,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref short xs, ref short ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6936,7 +7554,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref short xs, ref short ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -6969,7 +7591,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref short xs, ref short ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7001,7 +7627,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count)
+#else
         public static void PlotDigital(string label_id, ref ushort xs, ref ushort ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7036,7 +7666,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7070,7 +7704,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7103,7 +7741,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7135,7 +7777,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count)
+#else
         public static void PlotDigital(string label_id, ref int xs, ref int ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7170,7 +7816,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref int xs, ref int ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7204,7 +7854,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref int xs, ref int ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7237,7 +7891,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref int xs, ref int ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7269,7 +7927,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count)
+#else
         public static void PlotDigital(string label_id, ref uint xs, ref uint ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7304,7 +7966,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref uint xs, ref uint ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7338,7 +8004,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref uint xs, ref uint ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7371,7 +8041,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref uint xs, ref uint ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7403,7 +8077,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count)
+#else
         public static void PlotDigital(string label_id, ref long xs, ref long ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7438,7 +8116,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref long xs, ref long ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7472,7 +8154,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref long xs, ref long ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7505,7 +8191,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref long xs, ref long ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7537,7 +8227,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count)
+#else
         public static void PlotDigital(string label_id, ref ulong xs, ref ulong ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7572,7 +8266,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigital(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7606,7 +8304,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotDigitalFlags flags, int offset)
+#else
         public static void PlotDigital(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotDigitalFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7639,7 +8341,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigital(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#else
         public static void PlotDigital(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotDigitalFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7671,7 +8377,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigitalG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count)
+#else
         public static void PlotDigitalG(string label_id, IntPtr getter, IntPtr data, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7699,7 +8409,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDigitalG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count, ImPlotDigitalFlags flags)
+#else
         public static void PlotDigitalG(string label_id, IntPtr getter, IntPtr data, int count, ImPlotDigitalFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7726,7 +8440,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDummy(ReadOnlySpan<char> label_id)
+#else
         public static void PlotDummy(string label_id)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7753,7 +8471,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotDummy(ReadOnlySpan<char> label_id, ImPlotDummyFlags flags)
+#else
         public static void PlotDummy(string label_id, ImPlotDummyFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7779,7 +8501,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, ref float err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref float xs, ref float ys, ref float err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7817,7 +8543,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, ref float err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref float xs, ref float ys, ref float err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7854,7 +8584,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, ref float err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref float xs, ref float ys, ref float err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7890,7 +8624,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, ref float err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref float xs, ref float ys, ref float err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7925,7 +8663,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, ref double err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref double xs, ref double ys, ref double err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -7963,7 +8705,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, ref double err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref double xs, ref double ys, ref double err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8000,7 +8746,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, ref double err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref double xs, ref double ys, ref double err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8036,7 +8786,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, ref double err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref double xs, ref double ys, ref double err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8071,7 +8825,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, ref sbyte err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref sbyte xs, ref sbyte ys, ref sbyte err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8109,7 +8867,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, ref sbyte err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref sbyte xs, ref sbyte ys, ref sbyte err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8146,7 +8908,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, ref sbyte err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref sbyte xs, ref sbyte ys, ref sbyte err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8182,7 +8948,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, ref sbyte err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref sbyte xs, ref sbyte ys, ref sbyte err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8217,7 +8987,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, ref byte err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref byte xs, ref byte ys, ref byte err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8255,7 +9029,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, ref byte err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref byte xs, ref byte ys, ref byte err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8292,7 +9070,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, ref byte err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref byte xs, ref byte ys, ref byte err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8328,7 +9110,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, ref byte err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref byte xs, ref byte ys, ref byte err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8363,7 +9149,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, ref short err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref short xs, ref short ys, ref short err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8401,7 +9191,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, ref short err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref short xs, ref short ys, ref short err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8438,7 +9232,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, ref short err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref short xs, ref short ys, ref short err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8474,7 +9272,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, ref short err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref short xs, ref short ys, ref short err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8509,7 +9311,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, ref ushort err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref ushort xs, ref ushort ys, ref ushort err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8547,7 +9353,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, ref ushort err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref ushort xs, ref ushort ys, ref ushort err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8584,7 +9394,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, ref ushort err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref ushort xs, ref ushort ys, ref ushort err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8620,7 +9434,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, ref ushort err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref ushort xs, ref ushort ys, ref ushort err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8655,7 +9473,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, ref int err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref int xs, ref int ys, ref int err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8693,7 +9515,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, ref int err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref int xs, ref int ys, ref int err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8730,7 +9556,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, ref int err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref int xs, ref int ys, ref int err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8766,7 +9596,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, ref int err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref int xs, ref int ys, ref int err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8801,7 +9635,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, ref uint err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref uint xs, ref uint ys, ref uint err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8839,7 +9677,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, ref uint err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref uint xs, ref uint ys, ref uint err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8876,7 +9718,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, ref uint err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref uint xs, ref uint ys, ref uint err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8912,7 +9758,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, ref uint err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref uint xs, ref uint ys, ref uint err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8947,7 +9797,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, ref long err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref long xs, ref long ys, ref long err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -8985,7 +9839,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, ref long err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref long xs, ref long ys, ref long err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9022,7 +9880,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, ref long err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref long xs, ref long ys, ref long err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9058,7 +9920,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, ref long err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref long xs, ref long ys, ref long err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9093,7 +9959,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, ref ulong err, int count)
+#else
         public static void PlotErrorBars(string label_id, ref ulong xs, ref ulong ys, ref ulong err, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9131,7 +10001,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, ref ulong err, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref ulong xs, ref ulong ys, ref ulong err, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9168,7 +10042,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, ref ulong err, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref ulong xs, ref ulong ys, ref ulong err, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9204,7 +10082,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, ref ulong err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref ulong xs, ref ulong ys, ref ulong err, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9239,7 +10121,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, ref float neg, ref float pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref float xs, ref float ys, ref float neg, ref float pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9280,7 +10166,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, ref float neg, ref float pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref float xs, ref float ys, ref float neg, ref float pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9320,7 +10210,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, ref float neg, ref float pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref float xs, ref float ys, ref float neg, ref float pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9359,7 +10253,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref float xs, ref float ys, ref float neg, ref float pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref float xs, ref float ys, ref float neg, ref float pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9397,7 +10295,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, ref double neg, ref double pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref double xs, ref double ys, ref double neg, ref double pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9438,7 +10340,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, ref double neg, ref double pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref double xs, ref double ys, ref double neg, ref double pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9478,7 +10384,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, ref double neg, ref double pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref double xs, ref double ys, ref double neg, ref double pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9517,7 +10427,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref double xs, ref double ys, ref double neg, ref double pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref double xs, ref double ys, ref double neg, ref double pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9555,7 +10469,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, ref sbyte neg, ref sbyte pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref sbyte xs, ref sbyte ys, ref sbyte neg, ref sbyte pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9596,7 +10514,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, ref sbyte neg, ref sbyte pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref sbyte xs, ref sbyte ys, ref sbyte neg, ref sbyte pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9636,7 +10558,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, ref sbyte neg, ref sbyte pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref sbyte xs, ref sbyte ys, ref sbyte neg, ref sbyte pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9675,7 +10601,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, ref sbyte neg, ref sbyte pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref sbyte xs, ref sbyte ys, ref sbyte neg, ref sbyte pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9713,7 +10643,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, ref byte neg, ref byte pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref byte xs, ref byte ys, ref byte neg, ref byte pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9754,7 +10688,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, ref byte neg, ref byte pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref byte xs, ref byte ys, ref byte neg, ref byte pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9794,7 +10732,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, ref byte neg, ref byte pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref byte xs, ref byte ys, ref byte neg, ref byte pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9833,7 +10775,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, ref byte neg, ref byte pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref byte xs, ref byte ys, ref byte neg, ref byte pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9871,7 +10817,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, ref short neg, ref short pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref short xs, ref short ys, ref short neg, ref short pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9912,7 +10862,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, ref short neg, ref short pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref short xs, ref short ys, ref short neg, ref short pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9952,7 +10906,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, ref short neg, ref short pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref short xs, ref short ys, ref short neg, ref short pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -9991,7 +10949,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref short xs, ref short ys, ref short neg, ref short pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref short xs, ref short ys, ref short neg, ref short pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10029,7 +10991,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, ref ushort neg, ref ushort pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref ushort xs, ref ushort ys, ref ushort neg, ref ushort pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10070,7 +11036,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, ref ushort neg, ref ushort pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref ushort xs, ref ushort ys, ref ushort neg, ref ushort pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10110,7 +11080,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, ref ushort neg, ref ushort pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref ushort xs, ref ushort ys, ref ushort neg, ref ushort pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10149,7 +11123,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, ref ushort neg, ref ushort pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref ushort xs, ref ushort ys, ref ushort neg, ref ushort pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10187,7 +11165,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, ref int neg, ref int pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref int xs, ref int ys, ref int neg, ref int pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10228,7 +11210,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, ref int neg, ref int pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref int xs, ref int ys, ref int neg, ref int pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10268,7 +11254,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, ref int neg, ref int pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref int xs, ref int ys, ref int neg, ref int pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10307,7 +11297,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref int xs, ref int ys, ref int neg, ref int pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref int xs, ref int ys, ref int neg, ref int pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10345,7 +11339,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, ref uint neg, ref uint pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref uint xs, ref uint ys, ref uint neg, ref uint pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10386,7 +11384,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, ref uint neg, ref uint pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref uint xs, ref uint ys, ref uint neg, ref uint pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10426,7 +11428,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, ref uint neg, ref uint pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref uint xs, ref uint ys, ref uint neg, ref uint pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10465,7 +11471,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, ref uint neg, ref uint pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref uint xs, ref uint ys, ref uint neg, ref uint pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10503,7 +11513,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, ref long neg, ref long pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref long xs, ref long ys, ref long neg, ref long pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10544,7 +11558,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, ref long neg, ref long pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref long xs, ref long ys, ref long neg, ref long pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10584,7 +11602,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, ref long neg, ref long pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref long xs, ref long ys, ref long neg, ref long pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10623,7 +11645,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref long xs, ref long ys, ref long neg, ref long pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref long xs, ref long ys, ref long neg, ref long pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10661,7 +11687,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, ref ulong neg, ref ulong pos, int count)
+#else
         public static void PlotErrorBars(string label_id, ref ulong xs, ref ulong ys, ref ulong neg, ref ulong pos, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10702,7 +11732,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, ref ulong neg, ref ulong pos, int count, ImPlotErrorBarsFlags flags)
+#else
         public static void PlotErrorBars(string label_id, ref ulong xs, ref ulong ys, ref ulong neg, ref ulong pos, int count, ImPlotErrorBarsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10742,7 +11776,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, ref ulong neg, ref ulong pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#else
         public static void PlotErrorBars(string label_id, ref ulong xs, ref ulong ys, ref ulong neg, ref ulong pos, int count, ImPlotErrorBarsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10781,7 +11819,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotErrorBars(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, ref ulong neg, ref ulong pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#else
         public static void PlotErrorBars(string label_id, ref ulong xs, ref ulong ys, ref ulong neg, ref ulong pos, int count, ImPlotErrorBarsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10819,7 +11861,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref float values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref float values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10871,7 +11917,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref float values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref float values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10922,7 +11972,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref float values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref float values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -10972,7 +12026,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref float values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref float values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11026,7 +12084,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref float values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref float values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11079,7 +12141,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref float values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref float values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11131,7 +12197,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref float values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref float values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11182,7 +12252,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref double values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref double values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11234,7 +12308,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref double values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref double values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11285,7 +12363,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref double values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref double values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11335,7 +12417,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref double values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref double values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11389,7 +12475,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref double values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref double values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11442,7 +12532,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref double values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref double values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11494,7 +12588,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref double values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref double values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11545,7 +12643,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref sbyte values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref sbyte values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11597,7 +12699,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref sbyte values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref sbyte values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11648,7 +12754,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11698,7 +12808,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11752,7 +12866,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11805,7 +12923,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11857,7 +12979,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref sbyte values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11908,7 +13034,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref byte values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref byte values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -11960,7 +13090,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref byte values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref byte values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12011,7 +13145,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref byte values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref byte values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12061,7 +13199,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref byte values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref byte values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12115,7 +13257,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref byte values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref byte values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12168,7 +13314,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref byte values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref byte values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12220,7 +13370,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref byte values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref byte values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12271,7 +13425,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref short values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref short values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12323,7 +13481,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref short values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref short values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12374,7 +13536,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref short values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref short values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12424,7 +13590,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref short values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref short values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12478,7 +13648,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref short values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref short values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12531,7 +13705,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref short values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref short values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12583,7 +13761,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref short values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref short values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12634,7 +13816,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ushort values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref ushort values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12686,7 +13872,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ushort values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref ushort values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12737,7 +13927,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12787,7 +13981,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12841,7 +14039,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12894,7 +14096,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12946,7 +14152,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref ushort values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -12997,7 +14207,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref int values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref int values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13049,7 +14263,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref int values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref int values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13100,7 +14318,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref int values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref int values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13150,7 +14372,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref int values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref int values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13204,7 +14430,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref int values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref int values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13257,7 +14487,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref int values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref int values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13309,7 +14543,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref int values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref int values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13360,7 +14598,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref uint values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref uint values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13412,7 +14654,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref uint values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref uint values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13463,7 +14709,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref uint values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref uint values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13513,7 +14763,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref uint values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref uint values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13567,7 +14821,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref uint values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref uint values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13620,7 +14878,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref uint values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref uint values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13672,7 +14934,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref uint values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref uint values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13723,7 +14989,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref long values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref long values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13775,7 +15045,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref long values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref long values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13826,7 +15100,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref long values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref long values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13876,7 +15154,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref long values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref long values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13930,7 +15212,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref long values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref long values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -13983,7 +15269,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref long values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref long values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14035,7 +15325,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref long values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref long values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14086,7 +15380,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ulong values, int rows, int cols)
+#else
         public static void PlotHeatmap(string label_id, ref ulong values, int rows, int cols)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14138,7 +15436,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ulong values, int rows, int cols, double scale_min)
+#else
         public static void PlotHeatmap(string label_id, ref ulong values, int rows, int cols, double scale_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14189,7 +15491,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max)
+#else
         public static void PlotHeatmap(string label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14239,7 +15545,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotHeatmap(string label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max, string label_fmt)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14293,7 +15603,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min)
+#else
         public static void PlotHeatmap(string label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14346,7 +15660,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotHeatmap(string label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14398,7 +15716,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotHeatmap(ReadOnlySpan<char> label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max, ReadOnlySpan<char> label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#else
         public static void PlotHeatmap(string label_id, ref ulong values, int rows, int cols, double scale_min, double scale_max, string label_fmt, ImPlotPoint bounds_min, ImPlotPoint bounds_max, ImPlotHeatmapFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14449,7 +15771,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref float values, int count)
+#else
         public static double PlotHistogram(string label_id, ref float values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14483,7 +15809,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref float values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref float values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14516,7 +15846,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref float values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref float values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14548,7 +15882,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref float values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref float values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14579,7 +15917,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref float values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref float values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14609,7 +15951,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref double values, int count)
+#else
         public static double PlotHistogram(string label_id, ref double values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14643,7 +15989,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref double values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref double values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14676,7 +16026,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref double values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref double values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14708,7 +16062,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref double values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref double values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14739,7 +16097,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref double values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref double values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14769,7 +16131,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref sbyte values, int count)
+#else
         public static double PlotHistogram(string label_id, ref sbyte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14803,7 +16169,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref sbyte values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref sbyte values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14836,7 +16206,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref sbyte values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref sbyte values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14868,7 +16242,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref sbyte values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref sbyte values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14899,7 +16277,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref sbyte values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref sbyte values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14929,7 +16311,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref byte values, int count)
+#else
         public static double PlotHistogram(string label_id, ref byte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14963,7 +16349,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref byte values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref byte values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -14996,7 +16386,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref byte values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref byte values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15028,7 +16422,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref byte values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref byte values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15059,7 +16457,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref byte values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref byte values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15089,7 +16491,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref short values, int count)
+#else
         public static double PlotHistogram(string label_id, ref short values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15123,7 +16529,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref short values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref short values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15156,7 +16566,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref short values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref short values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15188,7 +16602,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref short values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref short values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15219,7 +16637,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref short values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref short values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15249,7 +16671,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ushort values, int count)
+#else
         public static double PlotHistogram(string label_id, ref ushort values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15283,7 +16709,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ushort values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref ushort values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15316,7 +16746,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ushort values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref ushort values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15348,7 +16782,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ushort values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref ushort values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15379,7 +16817,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ushort values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref ushort values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15409,7 +16851,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref int values, int count)
+#else
         public static double PlotHistogram(string label_id, ref int values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15443,7 +16889,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref int values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref int values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15476,7 +16926,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref int values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref int values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15508,7 +16962,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref int values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref int values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15539,7 +16997,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref int values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref int values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15569,7 +17031,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref uint values, int count)
+#else
         public static double PlotHistogram(string label_id, ref uint values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15603,7 +17069,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref uint values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref uint values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15636,7 +17106,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref uint values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref uint values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15668,7 +17142,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref uint values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref uint values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15699,7 +17177,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref uint values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref uint values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15729,7 +17211,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref long values, int count)
+#else
         public static double PlotHistogram(string label_id, ref long values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15763,7 +17249,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref long values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref long values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15796,7 +17286,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref long values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref long values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15828,7 +17322,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref long values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref long values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15859,7 +17357,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref long values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref long values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15889,7 +17391,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ulong values, int count)
+#else
         public static double PlotHistogram(string label_id, ref ulong values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15923,7 +17429,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ulong values, int count, int bins)
+#else
         public static double PlotHistogram(string label_id, ref ulong values, int count, int bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15956,7 +17466,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ulong values, int count, int bins, double bar_scale)
+#else
         public static double PlotHistogram(string label_id, ref ulong values, int count, int bins, double bar_scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -15988,7 +17502,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ulong values, int count, int bins, double bar_scale, ImPlotRange range)
+#else
         public static double PlotHistogram(string label_id, ref ulong values, int count, int bins, double bar_scale, ImPlotRange range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16019,7 +17537,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram(ReadOnlySpan<char> label_id, ref ulong values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram(string label_id, ref ulong values, int count, int bins, double bar_scale, ImPlotRange range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16049,7 +17571,11 @@ namespace ImPlotNET
                 return ret;
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref float xs, ref float ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16086,7 +17612,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref float xs, ref float ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16122,7 +17652,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref float xs, ref float ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16157,7 +17691,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref float xs, ref float ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16191,7 +17729,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref float xs, ref float ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16224,7 +17766,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref double xs, ref double ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16261,7 +17807,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref double xs, ref double ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16297,7 +17847,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref double xs, ref double ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16332,7 +17886,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref double xs, ref double ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16366,7 +17924,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref double xs, ref double ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16399,7 +17961,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref sbyte xs, ref sbyte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16436,7 +18002,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref sbyte xs, ref sbyte ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16472,7 +18042,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref sbyte xs, ref sbyte ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16507,7 +18081,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref sbyte xs, ref sbyte ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16541,7 +18119,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref sbyte xs, ref sbyte ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16574,7 +18156,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref byte xs, ref byte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16611,7 +18197,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref byte xs, ref byte ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16647,7 +18237,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref byte xs, ref byte ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16682,7 +18276,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref byte xs, ref byte ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16716,7 +18314,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref byte xs, ref byte ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16749,7 +18351,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref short xs, ref short ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16786,7 +18392,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref short xs, ref short ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16822,7 +18432,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref short xs, ref short ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16857,7 +18471,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref short xs, ref short ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16891,7 +18509,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref short xs, ref short ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16924,7 +18546,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref ushort xs, ref ushort ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16961,7 +18587,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref ushort xs, ref ushort ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -16997,7 +18627,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref ushort xs, ref ushort ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17032,7 +18666,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref ushort xs, ref ushort ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17066,7 +18704,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref ushort xs, ref ushort ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17099,7 +18741,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref int xs, ref int ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17136,7 +18782,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref int xs, ref int ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17172,7 +18822,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref int xs, ref int ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17207,7 +18861,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref int xs, ref int ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17241,7 +18899,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref int xs, ref int ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17274,7 +18936,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref uint xs, ref uint ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17311,7 +18977,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref uint xs, ref uint ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17347,7 +19017,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref uint xs, ref uint ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17382,7 +19056,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref uint xs, ref uint ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17416,7 +19094,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref uint xs, ref uint ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17449,7 +19131,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref long xs, ref long ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17486,7 +19172,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref long xs, ref long ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17522,7 +19212,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref long xs, ref long ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17557,7 +19251,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref long xs, ref long ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17591,7 +19289,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref long xs, ref long ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17624,7 +19326,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count)
+#else
         public static double PlotHistogram2D(string label_id, ref ulong xs, ref ulong ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17661,7 +19367,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, int x_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref ulong xs, ref ulong ys, int count, int x_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17697,7 +19407,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, int x_bins, int y_bins)
+#else
         public static double PlotHistogram2D(string label_id, ref ulong xs, ref ulong ys, int count, int x_bins, int y_bins)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17732,7 +19446,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#else
         public static double PlotHistogram2D(string label_id, ref ulong xs, ref ulong ys, int count, int x_bins, int y_bins, ImPlotRect range)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17766,7 +19484,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static double PlotHistogram2D(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#else
         public static double PlotHistogram2D(string label_id, ref ulong xs, ref ulong ys, int count, int x_bins, int y_bins, ImPlotRect range, ImPlotHistogramFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17799,7 +19521,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotImage(ReadOnlySpan<char> label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#else
         public static void PlotImage(string label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17829,7 +19555,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotImage(ReadOnlySpan<char> label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max, Vector2 uv0)
+#else
         public static void PlotImage(string label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max, Vector2 uv0)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17858,7 +19588,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotImage(ReadOnlySpan<char> label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max, Vector2 uv0, Vector2 uv1)
+#else
         public static void PlotImage(string label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max, Vector2 uv0, Vector2 uv1)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17886,7 +19620,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotImage(ReadOnlySpan<char> label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max, Vector2 uv0, Vector2 uv1, Vector4 tint_col)
+#else
         public static void PlotImage(string label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max, Vector2 uv0, Vector2 uv1, Vector4 tint_col)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17913,7 +19651,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotImage(ReadOnlySpan<char> label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max, Vector2 uv0, Vector2 uv1, Vector4 tint_col, ImPlotImageFlags flags)
+#else
         public static void PlotImage(string label_id, IntPtr user_texture_id, ImPlotPoint bounds_min, ImPlotPoint bounds_max, Vector2 uv0, Vector2 uv1, Vector4 tint_col, ImPlotImageFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17939,7 +19681,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref float values, int count)
+#else
         public static void PlotInfLines(string label_id, ref float values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -17971,7 +19717,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref float values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref float values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18002,7 +19752,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref float values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref float values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18032,7 +19786,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref float values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref float values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18061,7 +19819,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref double values, int count)
+#else
         public static void PlotInfLines(string label_id, ref double values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18093,7 +19855,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref double values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref double values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18124,7 +19890,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref double values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref double values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18154,7 +19924,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref double values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref double values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18183,7 +19957,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref sbyte values, int count)
+#else
         public static void PlotInfLines(string label_id, ref sbyte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18215,7 +19993,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref sbyte values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref sbyte values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18246,7 +20028,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref sbyte values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref sbyte values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18276,7 +20062,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref sbyte values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref sbyte values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18305,7 +20095,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref byte values, int count)
+#else
         public static void PlotInfLines(string label_id, ref byte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18337,7 +20131,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref byte values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref byte values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18368,7 +20166,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref byte values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref byte values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18398,7 +20200,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref byte values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref byte values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18427,7 +20233,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref short values, int count)
+#else
         public static void PlotInfLines(string label_id, ref short values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18459,7 +20269,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref short values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref short values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18490,7 +20304,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref short values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref short values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18520,7 +20338,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref short values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref short values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18549,7 +20371,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref ushort values, int count)
+#else
         public static void PlotInfLines(string label_id, ref ushort values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18581,7 +20407,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref ushort values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref ushort values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18612,7 +20442,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref ushort values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref ushort values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18642,7 +20476,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref ushort values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref ushort values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18671,7 +20509,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref int values, int count)
+#else
         public static void PlotInfLines(string label_id, ref int values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18703,7 +20545,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref int values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref int values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18734,7 +20580,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref int values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref int values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18764,7 +20614,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref int values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref int values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18793,7 +20647,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref uint values, int count)
+#else
         public static void PlotInfLines(string label_id, ref uint values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18825,7 +20683,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref uint values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref uint values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18856,7 +20718,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref uint values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref uint values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18886,7 +20752,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref uint values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref uint values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18915,7 +20785,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref long values, int count)
+#else
         public static void PlotInfLines(string label_id, ref long values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18947,7 +20821,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref long values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref long values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -18978,7 +20856,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref long values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref long values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19008,7 +20890,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref long values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref long values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19037,7 +20923,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref ulong values, int count)
+#else
         public static void PlotInfLines(string label_id, ref ulong values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19069,7 +20959,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref ulong values, int count, ImPlotInfLinesFlags flags)
+#else
         public static void PlotInfLines(string label_id, ref ulong values, int count, ImPlotInfLinesFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19100,7 +20994,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref ulong values, int count, ImPlotInfLinesFlags flags, int offset)
+#else
         public static void PlotInfLines(string label_id, ref ulong values, int count, ImPlotInfLinesFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19130,7 +21028,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotInfLines(ReadOnlySpan<char> label_id, ref ulong values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#else
         public static void PlotInfLines(string label_id, ref ulong values, int count, ImPlotInfLinesFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19159,7 +21061,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float values, int count)
+#else
         public static void PlotLine(string label_id, ref float values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19193,7 +21099,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref float values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19226,7 +21136,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref float values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19258,7 +21172,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref float values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19289,7 +21207,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref float values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19319,7 +21241,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref float values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19348,7 +21274,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double values, int count)
+#else
         public static void PlotLine(string label_id, ref double values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19382,7 +21312,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref double values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19415,7 +21349,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref double values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19447,7 +21385,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref double values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19478,7 +21420,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref double values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19508,7 +21454,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref double values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19537,7 +21487,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte values, int count)
+#else
         public static void PlotLine(string label_id, ref sbyte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19571,7 +21525,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref sbyte values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19604,7 +21562,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref sbyte values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19636,7 +21598,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19667,7 +21633,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19697,7 +21667,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19726,7 +21700,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte values, int count)
+#else
         public static void PlotLine(string label_id, ref byte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19760,7 +21738,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref byte values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19793,7 +21775,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref byte values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19825,7 +21811,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref byte values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19856,7 +21846,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref byte values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19886,7 +21880,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref byte values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19915,7 +21913,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short values, int count)
+#else
         public static void PlotLine(string label_id, ref short values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19949,7 +21951,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref short values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -19982,7 +21988,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref short values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20014,7 +22024,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref short values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20045,7 +22059,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref short values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20075,7 +22093,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref short values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20104,7 +22126,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort values, int count)
+#else
         public static void PlotLine(string label_id, ref ushort values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20138,7 +22164,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref ushort values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20171,7 +22201,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref ushort values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20203,7 +22237,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref ushort values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20234,7 +22272,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref ushort values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20264,7 +22306,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref ushort values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20293,7 +22339,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int values, int count)
+#else
         public static void PlotLine(string label_id, ref int values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20327,7 +22377,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref int values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20360,7 +22414,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref int values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20392,7 +22450,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref int values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20423,7 +22485,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref int values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20453,7 +22519,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref int values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20482,7 +22552,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint values, int count)
+#else
         public static void PlotLine(string label_id, ref uint values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20516,7 +22590,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref uint values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20549,7 +22627,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref uint values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20581,7 +22663,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref uint values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20612,7 +22698,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref uint values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20642,7 +22732,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref uint values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20671,7 +22765,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long values, int count)
+#else
         public static void PlotLine(string label_id, ref long values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20705,7 +22803,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref long values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20738,7 +22840,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref long values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20770,7 +22876,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref long values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20801,7 +22911,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref long values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20831,7 +22945,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref long values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20860,7 +22978,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong values, int count)
+#else
         public static void PlotLine(string label_id, ref ulong values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20894,7 +23016,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale)
+#else
         public static void PlotLine(string label_id, ref ulong values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20927,7 +23053,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart)
+#else
         public static void PlotLine(string label_id, ref ulong values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20959,7 +23089,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref ulong values, int count, double xscale, double xstart, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -20990,7 +23124,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref ulong values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21020,7 +23158,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref ulong values, int count, double xscale, double xstart, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21049,7 +23191,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count)
+#else
         public static void PlotLine(string label_id, ref float xs, ref float ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21084,7 +23230,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref float xs, ref float ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21118,7 +23268,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref float xs, ref float ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21151,7 +23305,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref float xs, ref float ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21183,7 +23341,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count)
+#else
         public static void PlotLine(string label_id, ref double xs, ref double ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21218,7 +23380,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref double xs, ref double ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21252,7 +23418,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref double xs, ref double ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21285,7 +23455,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref double xs, ref double ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21317,7 +23491,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count)
+#else
         public static void PlotLine(string label_id, ref sbyte xs, ref sbyte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21352,7 +23530,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21386,7 +23568,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21419,7 +23605,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21451,7 +23641,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count)
+#else
         public static void PlotLine(string label_id, ref byte xs, ref byte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21486,7 +23680,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref byte xs, ref byte ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21520,7 +23718,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref byte xs, ref byte ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21553,7 +23755,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref byte xs, ref byte ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21585,7 +23791,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count)
+#else
         public static void PlotLine(string label_id, ref short xs, ref short ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21620,7 +23830,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref short xs, ref short ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21654,7 +23868,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref short xs, ref short ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21687,7 +23905,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref short xs, ref short ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21719,7 +23941,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count)
+#else
         public static void PlotLine(string label_id, ref ushort xs, ref ushort ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21754,7 +23980,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21788,7 +24018,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21821,7 +24055,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21853,7 +24091,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count)
+#else
         public static void PlotLine(string label_id, ref int xs, ref int ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21888,7 +24130,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref int xs, ref int ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21922,7 +24168,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref int xs, ref int ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21955,7 +24205,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref int xs, ref int ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -21987,7 +24241,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count)
+#else
         public static void PlotLine(string label_id, ref uint xs, ref uint ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22022,7 +24280,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref uint xs, ref uint ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22056,7 +24318,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref uint xs, ref uint ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22089,7 +24355,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref uint xs, ref uint ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22121,7 +24391,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count)
+#else
         public static void PlotLine(string label_id, ref long xs, ref long ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22156,7 +24430,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref long xs, ref long ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22190,7 +24468,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref long xs, ref long ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22223,7 +24505,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref long xs, ref long ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22255,7 +24541,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count)
+#else
         public static void PlotLine(string label_id, ref ulong xs, ref ulong ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22290,7 +24580,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLine(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22324,7 +24618,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotLineFlags flags, int offset)
+#else
         public static void PlotLine(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotLineFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22357,7 +24655,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLine(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#else
         public static void PlotLine(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotLineFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22389,7 +24691,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLineG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count)
+#else
         public static void PlotLineG(string label_id, IntPtr getter, IntPtr data, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22417,7 +24723,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotLineG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count, ImPlotLineFlags flags)
+#else
         public static void PlotLineG(string label_id, IntPtr getter, IntPtr data, int count, ImPlotLineFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -22498,7 +24808,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref float values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref float values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -22556,7 +24870,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref float values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref float values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -22613,7 +24931,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref float values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref float values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -22723,7 +25045,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref double values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref double values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -22781,7 +25107,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref double values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref double values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -22838,7 +25168,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref double values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref double values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -22948,7 +25282,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref sbyte values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref sbyte values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23006,7 +25344,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref sbyte values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref sbyte values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23063,7 +25405,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref sbyte values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref sbyte values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23173,7 +25519,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref byte values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref byte values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23231,7 +25581,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref byte values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref byte values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23288,7 +25642,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref byte values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref byte values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23398,7 +25756,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref short values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref short values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23456,7 +25818,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref short values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref short values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23513,7 +25879,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref short values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref short values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23623,7 +25993,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref ushort values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref ushort values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23681,7 +26055,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref ushort values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref ushort values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23738,7 +26116,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref ushort values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref ushort values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23848,7 +26230,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref int values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref int values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23906,7 +26292,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref int values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref int values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -23963,7 +26353,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref int values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref int values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24073,7 +26467,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref uint values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref uint values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24131,7 +26529,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref uint values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref uint values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24188,7 +26590,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref uint values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref uint values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24298,7 +26704,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref long values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref long values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24356,7 +26766,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref long values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref long values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24413,7 +26827,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref long values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref long values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24523,7 +26941,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref ulong values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt)
+#else
         public static void PlotPieChart(string[] label_ids, ref ulong values, int count, double x, double y, double radius, string label_fmt)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24581,7 +27003,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref ulong values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0)
+#else
         public static void PlotPieChart(string[] label_ids, ref ulong values, int count, double x, double y, double radius, string label_fmt, double angle0)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24638,7 +27064,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotPieChart(string[] label_ids, ref ulong values, int count, double x, double y, double radius, ReadOnlySpan<char> label_fmt, double angle0, ImPlotPieChartFlags flags)
+#else
         public static void PlotPieChart(string[] label_ids, ref ulong values, int count, double x, double y, double radius, string label_fmt, double angle0, ImPlotPieChartFlags flags)
+#endif
         {
             int* label_ids_byteCounts = stackalloc int[label_ids.Length];
             int label_ids_byteCount = 0;
@@ -24694,7 +27124,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float values, int count)
+#else
         public static void PlotScatter(string label_id, ref float values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -24728,7 +27162,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref float values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -24761,7 +27199,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref float values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -24793,7 +27235,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref float values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -24824,7 +27270,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref float values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -24854,7 +27304,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref float values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -24883,7 +27337,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double values, int count)
+#else
         public static void PlotScatter(string label_id, ref double values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -24917,7 +27375,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref double values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -24950,7 +27412,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref double values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -24982,7 +27448,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref double values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25013,7 +27483,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref double values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25043,7 +27517,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref double values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25072,7 +27550,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte values, int count)
+#else
         public static void PlotScatter(string label_id, ref sbyte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25106,7 +27588,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref sbyte values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25139,7 +27625,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref sbyte values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25171,7 +27661,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25202,7 +27696,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25232,7 +27730,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25261,7 +27763,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte values, int count)
+#else
         public static void PlotScatter(string label_id, ref byte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25295,7 +27801,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref byte values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25328,7 +27838,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref byte values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25360,7 +27874,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref byte values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25391,7 +27909,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref byte values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25421,7 +27943,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref byte values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25450,7 +27976,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short values, int count)
+#else
         public static void PlotScatter(string label_id, ref short values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25484,7 +28014,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref short values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25517,7 +28051,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref short values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25549,7 +28087,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref short values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25580,7 +28122,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref short values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25610,7 +28156,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref short values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25639,7 +28189,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort values, int count)
+#else
         public static void PlotScatter(string label_id, ref ushort values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25673,7 +28227,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref ushort values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25706,7 +28264,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref ushort values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25738,7 +28300,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref ushort values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25769,7 +28335,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref ushort values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25799,7 +28369,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref ushort values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25828,7 +28402,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int values, int count)
+#else
         public static void PlotScatter(string label_id, ref int values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25862,7 +28440,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref int values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25895,7 +28477,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref int values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25927,7 +28513,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref int values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25958,7 +28548,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref int values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -25988,7 +28582,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref int values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26017,7 +28615,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint values, int count)
+#else
         public static void PlotScatter(string label_id, ref uint values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26051,7 +28653,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref uint values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26084,7 +28690,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref uint values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26116,7 +28726,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref uint values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26147,7 +28761,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref uint values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26177,7 +28795,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref uint values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26206,7 +28828,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long values, int count)
+#else
         public static void PlotScatter(string label_id, ref long values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26240,7 +28866,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref long values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26273,7 +28903,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref long values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26305,7 +28939,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref long values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26336,7 +28974,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref long values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26366,7 +29008,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref long values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26395,7 +29041,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong values, int count)
+#else
         public static void PlotScatter(string label_id, ref ulong values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26429,7 +29079,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale)
+#else
         public static void PlotScatter(string label_id, ref ulong values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26462,7 +29116,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart)
+#else
         public static void PlotScatter(string label_id, ref ulong values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26494,7 +29152,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref ulong values, int count, double xscale, double xstart, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26525,7 +29187,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref ulong values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26555,7 +29221,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref ulong values, int count, double xscale, double xstart, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26584,7 +29254,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count)
+#else
         public static void PlotScatter(string label_id, ref float xs, ref float ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26619,7 +29293,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref float xs, ref float ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26653,7 +29331,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref float xs, ref float ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26686,7 +29368,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref float xs, ref float ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26718,7 +29404,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count)
+#else
         public static void PlotScatter(string label_id, ref double xs, ref double ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26753,7 +29443,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref double xs, ref double ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26787,7 +29481,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref double xs, ref double ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26820,7 +29518,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref double xs, ref double ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26852,7 +29554,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count)
+#else
         public static void PlotScatter(string label_id, ref sbyte xs, ref sbyte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26887,7 +29593,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26921,7 +29631,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26954,7 +29668,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -26986,7 +29704,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count)
+#else
         public static void PlotScatter(string label_id, ref byte xs, ref byte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27021,7 +29743,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref byte xs, ref byte ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27055,7 +29781,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref byte xs, ref byte ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27088,7 +29818,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref byte xs, ref byte ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27120,7 +29854,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count)
+#else
         public static void PlotScatter(string label_id, ref short xs, ref short ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27155,7 +29893,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref short xs, ref short ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27189,7 +29931,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref short xs, ref short ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27222,7 +29968,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref short xs, ref short ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27254,7 +30004,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count)
+#else
         public static void PlotScatter(string label_id, ref ushort xs, ref ushort ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27289,7 +30043,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27323,7 +30081,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27356,7 +30118,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27388,7 +30154,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count)
+#else
         public static void PlotScatter(string label_id, ref int xs, ref int ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27423,7 +30193,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref int xs, ref int ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27457,7 +30231,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref int xs, ref int ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27490,7 +30268,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref int xs, ref int ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27522,7 +30304,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count)
+#else
         public static void PlotScatter(string label_id, ref uint xs, ref uint ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27557,7 +30343,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref uint xs, ref uint ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27591,7 +30381,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref uint xs, ref uint ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27624,7 +30418,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref uint xs, ref uint ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27656,7 +30454,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count)
+#else
         public static void PlotScatter(string label_id, ref long xs, ref long ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27691,7 +30493,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref long xs, ref long ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27725,7 +30531,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref long xs, ref long ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27758,7 +30568,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref long xs, ref long ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27790,7 +30604,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count)
+#else
         public static void PlotScatter(string label_id, ref ulong xs, ref ulong ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27825,7 +30643,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatter(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27859,7 +30681,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotScatterFlags flags, int offset)
+#else
         public static void PlotScatter(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotScatterFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27892,7 +30718,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatter(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#else
         public static void PlotScatter(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotScatterFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27924,7 +30754,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatterG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count)
+#else
         public static void PlotScatterG(string label_id, IntPtr getter, IntPtr data, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27952,7 +30786,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotScatterG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count, ImPlotScatterFlags flags)
+#else
         public static void PlotScatterG(string label_id, IntPtr getter, IntPtr data, int count, ImPlotScatterFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -27979,7 +30817,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float values, int count)
+#else
         public static void PlotShaded(string label_id, ref float values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28014,7 +30856,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref float values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28048,7 +30894,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref float values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28081,7 +30931,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref float values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28113,7 +30967,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref float values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28144,7 +31002,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref float values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28174,7 +31036,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref float values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28203,7 +31069,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double values, int count)
+#else
         public static void PlotShaded(string label_id, ref double values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28238,7 +31108,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref double values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28272,7 +31146,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref double values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28305,7 +31183,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref double values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28337,7 +31219,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref double values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28368,7 +31254,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref double values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28398,7 +31288,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref double values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28427,7 +31321,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte values, int count)
+#else
         public static void PlotShaded(string label_id, ref sbyte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28462,7 +31360,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref sbyte values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28496,7 +31398,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref sbyte values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28529,7 +31435,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref sbyte values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28561,7 +31471,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref sbyte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28592,7 +31506,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref sbyte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28622,7 +31540,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref sbyte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28651,7 +31573,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte values, int count)
+#else
         public static void PlotShaded(string label_id, ref byte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28686,7 +31612,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref byte values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28720,7 +31650,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref byte values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28753,7 +31687,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref byte values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28785,7 +31723,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref byte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28816,7 +31758,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref byte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28846,7 +31792,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref byte values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28875,7 +31825,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short values, int count)
+#else
         public static void PlotShaded(string label_id, ref short values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28910,7 +31864,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref short values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28944,7 +31902,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref short values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -28977,7 +31939,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref short values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29009,7 +31975,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref short values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29040,7 +32010,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref short values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29070,7 +32044,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref short values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29099,7 +32077,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort values, int count)
+#else
         public static void PlotShaded(string label_id, ref ushort values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29134,7 +32116,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref ushort values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29168,7 +32154,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref ushort values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29201,7 +32191,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref ushort values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29233,7 +32227,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref ushort values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29264,7 +32262,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref ushort values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29294,7 +32296,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref ushort values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29323,7 +32329,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int values, int count)
+#else
         public static void PlotShaded(string label_id, ref int values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29358,7 +32368,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref int values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29392,7 +32406,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref int values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29425,7 +32443,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref int values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29457,7 +32479,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref int values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29488,7 +32514,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref int values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29518,7 +32548,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref int values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29547,7 +32581,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint values, int count)
+#else
         public static void PlotShaded(string label_id, ref uint values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29582,7 +32620,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref uint values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29616,7 +32658,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref uint values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29649,7 +32695,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref uint values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29681,7 +32731,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref uint values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29712,7 +32766,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref uint values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29742,7 +32800,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref uint values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29771,7 +32833,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long values, int count)
+#else
         public static void PlotShaded(string label_id, ref long values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29806,7 +32872,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref long values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29840,7 +32910,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref long values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29873,7 +32947,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref long values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29905,7 +32983,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref long values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29936,7 +33018,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref long values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29966,7 +33052,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref long values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -29995,7 +33085,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong values, int count)
+#else
         public static void PlotShaded(string label_id, ref ulong values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30030,7 +33124,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong values, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref ulong values, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30064,7 +33162,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong values, int count, double yref, double xscale)
+#else
         public static void PlotShaded(string label_id, ref ulong values, int count, double yref, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30097,7 +33199,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong values, int count, double yref, double xscale, double xstart)
+#else
         public static void PlotShaded(string label_id, ref ulong values, int count, double yref, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30129,7 +33235,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref ulong values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30160,7 +33270,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref ulong values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30190,7 +33304,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref ulong values, int count, double yref, double xscale, double xstart, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30219,7 +33337,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count)
+#else
         public static void PlotShaded(string label_id, ref float xs, ref float ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30255,7 +33377,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref float xs, ref float ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30290,7 +33416,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref float xs, ref float ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30324,7 +33454,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref float xs, ref float ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30357,7 +33491,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref float xs, ref float ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30389,7 +33527,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count)
+#else
         public static void PlotShaded(string label_id, ref double xs, ref double ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30425,7 +33567,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref double xs, ref double ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30460,7 +33606,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref double xs, ref double ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30494,7 +33644,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref double xs, ref double ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30527,7 +33681,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref double xs, ref double ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30559,7 +33717,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count)
+#else
         public static void PlotShaded(string label_id, ref sbyte xs, ref sbyte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30595,7 +33757,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref sbyte xs, ref sbyte ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30630,7 +33796,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref sbyte xs, ref sbyte ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30664,7 +33834,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref sbyte xs, ref sbyte ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30697,7 +33871,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref sbyte xs, ref sbyte ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30729,7 +33907,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count)
+#else
         public static void PlotShaded(string label_id, ref byte xs, ref byte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30765,7 +33947,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref byte xs, ref byte ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30800,7 +33986,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref byte xs, ref byte ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30834,7 +34024,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref byte xs, ref byte ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30867,7 +34061,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref byte xs, ref byte ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30899,7 +34097,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count)
+#else
         public static void PlotShaded(string label_id, ref short xs, ref short ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30935,7 +34137,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref short xs, ref short ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -30970,7 +34176,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref short xs, ref short ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31004,7 +34214,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref short xs, ref short ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31037,7 +34251,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref short xs, ref short ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31069,7 +34287,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count)
+#else
         public static void PlotShaded(string label_id, ref ushort xs, ref ushort ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31105,7 +34327,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref ushort xs, ref ushort ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31140,7 +34366,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref ushort xs, ref ushort ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31174,7 +34404,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref ushort xs, ref ushort ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31207,7 +34441,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref ushort xs, ref ushort ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31239,7 +34477,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count)
+#else
         public static void PlotShaded(string label_id, ref int xs, ref int ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31275,7 +34517,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref int xs, ref int ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31310,7 +34556,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref int xs, ref int ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31344,7 +34594,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref int xs, ref int ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31377,7 +34631,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref int xs, ref int ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31409,7 +34667,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count)
+#else
         public static void PlotShaded(string label_id, ref uint xs, ref uint ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31445,7 +34707,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref uint xs, ref uint ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31480,7 +34746,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref uint xs, ref uint ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31514,7 +34784,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref uint xs, ref uint ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31547,7 +34821,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref uint xs, ref uint ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31579,7 +34857,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count)
+#else
         public static void PlotShaded(string label_id, ref long xs, ref long ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31615,7 +34897,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref long xs, ref long ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31650,7 +34936,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref long xs, ref long ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31684,7 +34974,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref long xs, ref long ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31717,7 +35011,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref long xs, ref long ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31749,7 +35047,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count)
+#else
         public static void PlotShaded(string label_id, ref ulong xs, ref ulong ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31785,7 +35087,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double yref)
+#else
         public static void PlotShaded(string label_id, ref ulong xs, ref ulong ys, int count, double yref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31820,7 +35126,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double yref, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref ulong xs, ref ulong ys, int count, double yref, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31854,7 +35164,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref ulong xs, ref ulong ys, int count, double yref, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31887,7 +35201,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref ulong xs, ref ulong ys, int count, double yref, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31919,7 +35237,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float xs, ref float ys1, ref float ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref float xs, ref float ys1, ref float ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31957,7 +35279,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float xs, ref float ys1, ref float ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref float xs, ref float ys1, ref float ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -31994,7 +35320,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float xs, ref float ys1, ref float ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref float xs, ref float ys1, ref float ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32030,7 +35360,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref float xs, ref float ys1, ref float ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref float xs, ref float ys1, ref float ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32065,7 +35399,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double xs, ref double ys1, ref double ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref double xs, ref double ys1, ref double ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32103,7 +35441,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double xs, ref double ys1, ref double ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref double xs, ref double ys1, ref double ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32140,7 +35482,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double xs, ref double ys1, ref double ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref double xs, ref double ys1, ref double ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32176,7 +35522,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref double xs, ref double ys1, ref double ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref double xs, ref double ys1, ref double ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32211,7 +35561,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys1, ref sbyte ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref sbyte xs, ref sbyte ys1, ref sbyte ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32249,7 +35603,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys1, ref sbyte ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref sbyte xs, ref sbyte ys1, ref sbyte ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32286,7 +35644,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys1, ref sbyte ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref sbyte xs, ref sbyte ys1, ref sbyte ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32322,7 +35684,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys1, ref sbyte ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref sbyte xs, ref sbyte ys1, ref sbyte ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32357,7 +35723,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys1, ref byte ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref byte xs, ref byte ys1, ref byte ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32395,7 +35765,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys1, ref byte ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref byte xs, ref byte ys1, ref byte ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32432,7 +35806,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys1, ref byte ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref byte xs, ref byte ys1, ref byte ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32468,7 +35846,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys1, ref byte ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref byte xs, ref byte ys1, ref byte ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32503,7 +35885,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short xs, ref short ys1, ref short ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref short xs, ref short ys1, ref short ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32541,7 +35927,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short xs, ref short ys1, ref short ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref short xs, ref short ys1, ref short ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32578,7 +35968,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short xs, ref short ys1, ref short ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref short xs, ref short ys1, ref short ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32614,7 +36008,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref short xs, ref short ys1, ref short ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref short xs, ref short ys1, ref short ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32649,7 +36047,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys1, ref ushort ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref ushort xs, ref ushort ys1, ref ushort ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32687,7 +36089,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys1, ref ushort ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref ushort xs, ref ushort ys1, ref ushort ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32724,7 +36130,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys1, ref ushort ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref ushort xs, ref ushort ys1, ref ushort ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32760,7 +36170,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys1, ref ushort ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref ushort xs, ref ushort ys1, ref ushort ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32795,7 +36209,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int xs, ref int ys1, ref int ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref int xs, ref int ys1, ref int ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32833,7 +36251,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int xs, ref int ys1, ref int ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref int xs, ref int ys1, ref int ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32870,7 +36292,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int xs, ref int ys1, ref int ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref int xs, ref int ys1, ref int ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32906,7 +36332,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref int xs, ref int ys1, ref int ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref int xs, ref int ys1, ref int ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32941,7 +36371,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys1, ref uint ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref uint xs, ref uint ys1, ref uint ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -32979,7 +36413,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys1, ref uint ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref uint xs, ref uint ys1, ref uint ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33016,7 +36454,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys1, ref uint ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref uint xs, ref uint ys1, ref uint ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33052,7 +36494,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys1, ref uint ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref uint xs, ref uint ys1, ref uint ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33087,7 +36533,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long xs, ref long ys1, ref long ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref long xs, ref long ys1, ref long ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33125,7 +36575,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long xs, ref long ys1, ref long ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref long xs, ref long ys1, ref long ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33162,7 +36616,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long xs, ref long ys1, ref long ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref long xs, ref long ys1, ref long ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33198,7 +36656,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref long xs, ref long ys1, ref long ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref long xs, ref long ys1, ref long ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33233,7 +36695,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys1, ref ulong ys2, int count)
+#else
         public static void PlotShaded(string label_id, ref ulong xs, ref ulong ys1, ref ulong ys2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33271,7 +36737,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys1, ref ulong ys2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShaded(string label_id, ref ulong xs, ref ulong ys1, ref ulong ys2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33308,7 +36778,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys1, ref ulong ys2, int count, ImPlotShadedFlags flags, int offset)
+#else
         public static void PlotShaded(string label_id, ref ulong xs, ref ulong ys1, ref ulong ys2, int count, ImPlotShadedFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33344,7 +36818,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShaded(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys1, ref ulong ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#else
         public static void PlotShaded(string label_id, ref ulong xs, ref ulong ys1, ref ulong ys2, int count, ImPlotShadedFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33379,7 +36857,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShadedG(ReadOnlySpan<char> label_id, IntPtr getter1, IntPtr data1, IntPtr getter2, IntPtr data2, int count)
+#else
         public static void PlotShadedG(string label_id, IntPtr getter1, IntPtr data1, IntPtr getter2, IntPtr data2, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33408,7 +36890,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotShadedG(ReadOnlySpan<char> label_id, IntPtr getter1, IntPtr data1, IntPtr getter2, IntPtr data2, int count, ImPlotShadedFlags flags)
+#else
         public static void PlotShadedG(string label_id, IntPtr getter1, IntPtr data1, IntPtr getter2, IntPtr data2, int count, ImPlotShadedFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33436,7 +36922,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float values, int count)
+#else
         public static void PlotStairs(string label_id, ref float values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33470,7 +36960,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref float values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33503,7 +36997,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref float values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33535,7 +37033,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref float values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33566,7 +37068,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref float values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33596,7 +37102,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref float values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33625,7 +37135,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double values, int count)
+#else
         public static void PlotStairs(string label_id, ref double values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33659,7 +37173,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref double values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33692,7 +37210,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref double values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33724,7 +37246,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref double values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33755,7 +37281,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref double values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33785,7 +37315,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref double values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33814,7 +37348,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte values, int count)
+#else
         public static void PlotStairs(string label_id, ref sbyte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33848,7 +37386,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref sbyte values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33881,7 +37423,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref sbyte values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33913,7 +37459,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33944,7 +37494,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -33974,7 +37528,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref sbyte values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34003,7 +37561,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte values, int count)
+#else
         public static void PlotStairs(string label_id, ref byte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34037,7 +37599,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref byte values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34070,7 +37636,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref byte values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34102,7 +37672,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref byte values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34133,7 +37707,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref byte values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34163,7 +37741,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref byte values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34192,7 +37774,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short values, int count)
+#else
         public static void PlotStairs(string label_id, ref short values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34226,7 +37812,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref short values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34259,7 +37849,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref short values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34291,7 +37885,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref short values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34322,7 +37920,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref short values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34352,7 +37954,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref short values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34381,7 +37987,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort values, int count)
+#else
         public static void PlotStairs(string label_id, ref ushort values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34415,7 +38025,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref ushort values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34448,7 +38062,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref ushort values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34480,7 +38098,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref ushort values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34511,7 +38133,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref ushort values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34541,7 +38167,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref ushort values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34570,7 +38200,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int values, int count)
+#else
         public static void PlotStairs(string label_id, ref int values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34604,7 +38238,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref int values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34637,7 +38275,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref int values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34669,7 +38311,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref int values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34700,7 +38346,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref int values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34730,7 +38380,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref int values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34759,7 +38413,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint values, int count)
+#else
         public static void PlotStairs(string label_id, ref uint values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34793,7 +38451,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref uint values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34826,7 +38488,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref uint values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34858,7 +38524,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref uint values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34889,7 +38559,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref uint values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34919,7 +38593,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref uint values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34948,7 +38626,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long values, int count)
+#else
         public static void PlotStairs(string label_id, ref long values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -34982,7 +38664,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref long values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35015,7 +38701,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref long values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35047,7 +38737,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref long values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35078,7 +38772,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref long values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35108,7 +38806,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref long values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35137,7 +38839,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong values, int count)
+#else
         public static void PlotStairs(string label_id, ref ulong values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35171,7 +38877,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale)
+#else
         public static void PlotStairs(string label_id, ref ulong values, int count, double xscale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35204,7 +38914,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart)
+#else
         public static void PlotStairs(string label_id, ref ulong values, int count, double xscale, double xstart)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35236,7 +38950,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref ulong values, int count, double xscale, double xstart, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35267,7 +38985,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref ulong values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35297,7 +39019,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref ulong values, int count, double xscale, double xstart, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35326,7 +39052,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count)
+#else
         public static void PlotStairs(string label_id, ref float xs, ref float ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35361,7 +39091,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref float xs, ref float ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35395,7 +39129,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref float xs, ref float ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35428,7 +39166,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref float xs, ref float ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35460,7 +39202,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count)
+#else
         public static void PlotStairs(string label_id, ref double xs, ref double ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35495,7 +39241,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref double xs, ref double ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35529,7 +39279,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref double xs, ref double ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35562,7 +39316,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref double xs, ref double ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35594,7 +39352,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count)
+#else
         public static void PlotStairs(string label_id, ref sbyte xs, ref sbyte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35629,7 +39391,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35663,7 +39429,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35696,7 +39466,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref sbyte xs, ref sbyte ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35728,7 +39502,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count)
+#else
         public static void PlotStairs(string label_id, ref byte xs, ref byte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35763,7 +39541,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref byte xs, ref byte ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35797,7 +39579,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref byte xs, ref byte ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35830,7 +39616,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref byte xs, ref byte ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35862,7 +39652,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count)
+#else
         public static void PlotStairs(string label_id, ref short xs, ref short ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35897,7 +39691,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref short xs, ref short ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35931,7 +39729,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref short xs, ref short ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35964,7 +39766,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref short xs, ref short ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -35996,7 +39802,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count)
+#else
         public static void PlotStairs(string label_id, ref ushort xs, ref ushort ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36031,7 +39841,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36065,7 +39879,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36098,7 +39916,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref ushort xs, ref ushort ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36130,7 +39952,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count)
+#else
         public static void PlotStairs(string label_id, ref int xs, ref int ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36165,7 +39991,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref int xs, ref int ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36199,7 +40029,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref int xs, ref int ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36232,7 +40066,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref int xs, ref int ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36264,7 +40102,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count)
+#else
         public static void PlotStairs(string label_id, ref uint xs, ref uint ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36299,7 +40141,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref uint xs, ref uint ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36333,7 +40179,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref uint xs, ref uint ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36366,7 +40216,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref uint xs, ref uint ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36398,7 +40252,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count)
+#else
         public static void PlotStairs(string label_id, ref long xs, ref long ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36433,7 +40291,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref long xs, ref long ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36467,7 +40329,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref long xs, ref long ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36500,7 +40366,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref long xs, ref long ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36532,7 +40402,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count)
+#else
         public static void PlotStairs(string label_id, ref ulong xs, ref ulong ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36567,7 +40441,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairs(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36601,7 +40479,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotStairsFlags flags, int offset)
+#else
         public static void PlotStairs(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotStairsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36634,7 +40516,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairs(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#else
         public static void PlotStairs(string label_id, ref ulong xs, ref ulong ys, int count, ImPlotStairsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36666,7 +40552,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairsG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count)
+#else
         public static void PlotStairsG(string label_id, IntPtr getter, IntPtr data, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36694,7 +40584,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStairsG(ReadOnlySpan<char> label_id, IntPtr getter, IntPtr data, int count, ImPlotStairsFlags flags)
+#else
         public static void PlotStairsG(string label_id, IntPtr getter, IntPtr data, int count, ImPlotStairsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36721,7 +40615,11 @@ namespace ImPlotNET
                 Util.Free(native_label_id);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float values, int count)
+#else
         public static void PlotStems(string label_id, ref float values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36756,7 +40654,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref float values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36790,7 +40692,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref float values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36823,7 +40729,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref float values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36855,7 +40765,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref float values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36886,7 +40800,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref float values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36916,7 +40834,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref float values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36945,7 +40867,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double values, int count)
+#else
         public static void PlotStems(string label_id, ref double values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -36980,7 +40906,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref double values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37014,7 +40944,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref double values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37047,7 +40981,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref double values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37079,7 +41017,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref double values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37110,7 +41052,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref double values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37140,7 +41086,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref double values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37169,7 +41119,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte values, int count)
+#else
         public static void PlotStems(string label_id, ref sbyte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37204,7 +41158,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref sbyte values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37238,7 +41196,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref sbyte values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37271,7 +41233,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref sbyte values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37303,7 +41269,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref sbyte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37334,7 +41304,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref sbyte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37364,7 +41338,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref sbyte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37393,7 +41371,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte values, int count)
+#else
         public static void PlotStems(string label_id, ref byte values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37428,7 +41410,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref byte values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37462,7 +41448,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref byte values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37495,7 +41485,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref byte values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37527,7 +41521,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref byte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37558,7 +41556,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref byte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37588,7 +41590,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref byte values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37617,7 +41623,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short values, int count)
+#else
         public static void PlotStems(string label_id, ref short values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37652,7 +41662,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref short values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37686,7 +41700,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref short values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37719,7 +41737,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref short values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37751,7 +41773,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref short values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37782,7 +41808,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref short values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37812,7 +41842,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref short values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37841,7 +41875,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort values, int count)
+#else
         public static void PlotStems(string label_id, ref ushort values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37876,7 +41914,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref ushort values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37910,7 +41952,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref ushort values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37943,7 +41989,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref ushort values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -37975,7 +42025,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref ushort values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38006,7 +42060,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref ushort values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38036,7 +42094,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref ushort values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38065,7 +42127,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int values, int count)
+#else
         public static void PlotStems(string label_id, ref int values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38100,7 +42166,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref int values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38134,7 +42204,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref int values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38167,7 +42241,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref int values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38199,7 +42277,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref int values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38230,7 +42312,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref int values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38260,7 +42346,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref int values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38289,7 +42379,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint values, int count)
+#else
         public static void PlotStems(string label_id, ref uint values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38324,7 +42418,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref uint values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38358,7 +42456,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref uint values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38391,7 +42493,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref uint values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38423,7 +42529,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref uint values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38454,7 +42564,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref uint values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38484,7 +42598,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref uint values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38513,7 +42631,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long values, int count)
+#else
         public static void PlotStems(string label_id, ref long values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38548,7 +42670,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref long values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38582,7 +42708,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref long values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38615,7 +42745,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref long values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38647,7 +42781,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref long values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38678,7 +42816,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref long values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38708,7 +42850,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref long values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38737,7 +42883,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong values, int count)
+#else
         public static void PlotStems(string label_id, ref ulong values, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38772,7 +42922,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong values, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref ulong values, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38806,7 +42960,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong values, int count, double @ref, double scale)
+#else
         public static void PlotStems(string label_id, ref ulong values, int count, double @ref, double scale)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38839,7 +42997,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong values, int count, double @ref, double scale, double start)
+#else
         public static void PlotStems(string label_id, ref ulong values, int count, double @ref, double scale, double start)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38871,7 +43033,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref ulong values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38902,7 +43068,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref ulong values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38932,7 +43102,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref ulong values, int count, double @ref, double scale, double start, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38961,7 +43135,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count)
+#else
         public static void PlotStems(string label_id, ref float xs, ref float ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -38997,7 +43175,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref float xs, ref float ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39032,7 +43214,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref float xs, ref float ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39066,7 +43252,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref float xs, ref float ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39099,7 +43289,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref float xs, ref float ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref float xs, ref float ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39131,7 +43325,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count)
+#else
         public static void PlotStems(string label_id, ref double xs, ref double ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39167,7 +43365,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref double xs, ref double ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39202,7 +43404,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref double xs, ref double ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39236,7 +43442,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref double xs, ref double ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39269,7 +43479,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref double xs, ref double ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref double xs, ref double ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39301,7 +43515,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count)
+#else
         public static void PlotStems(string label_id, ref sbyte xs, ref sbyte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39337,7 +43555,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref sbyte xs, ref sbyte ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39372,7 +43594,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref sbyte xs, ref sbyte ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39406,7 +43632,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref sbyte xs, ref sbyte ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39439,7 +43669,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref sbyte xs, ref sbyte ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref sbyte xs, ref sbyte ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39471,7 +43705,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count)
+#else
         public static void PlotStems(string label_id, ref byte xs, ref byte ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39507,7 +43745,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref byte xs, ref byte ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39542,7 +43784,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref byte xs, ref byte ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39576,7 +43822,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref byte xs, ref byte ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39609,7 +43859,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref byte xs, ref byte ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref byte xs, ref byte ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39641,7 +43895,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count)
+#else
         public static void PlotStems(string label_id, ref short xs, ref short ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39677,7 +43935,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref short xs, ref short ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39712,7 +43974,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref short xs, ref short ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39746,7 +44012,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref short xs, ref short ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39779,7 +44049,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref short xs, ref short ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref short xs, ref short ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39811,7 +44085,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count)
+#else
         public static void PlotStems(string label_id, ref ushort xs, ref ushort ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39847,7 +44125,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref ushort xs, ref ushort ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39882,7 +44164,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref ushort xs, ref ushort ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39916,7 +44202,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref ushort xs, ref ushort ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39949,7 +44239,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ushort xs, ref ushort ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref ushort xs, ref ushort ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -39981,7 +44275,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count)
+#else
         public static void PlotStems(string label_id, ref int xs, ref int ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40017,7 +44315,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref int xs, ref int ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40052,7 +44354,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref int xs, ref int ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40086,7 +44392,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref int xs, ref int ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40119,7 +44429,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref int xs, ref int ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref int xs, ref int ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40151,7 +44465,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count)
+#else
         public static void PlotStems(string label_id, ref uint xs, ref uint ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40187,7 +44505,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref uint xs, ref uint ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40222,7 +44544,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref uint xs, ref uint ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40256,7 +44582,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref uint xs, ref uint ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40289,7 +44619,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref uint xs, ref uint ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref uint xs, ref uint ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40321,7 +44655,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count)
+#else
         public static void PlotStems(string label_id, ref long xs, ref long ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40357,7 +44695,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref long xs, ref long ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40392,7 +44734,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref long xs, ref long ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40426,7 +44772,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref long xs, ref long ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40459,7 +44809,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref long xs, ref long ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref long xs, ref long ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40491,7 +44845,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count)
+#else
         public static void PlotStems(string label_id, ref ulong xs, ref ulong ys, int count)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40527,7 +44885,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double @ref)
+#else
         public static void PlotStems(string label_id, ref ulong xs, ref ulong ys, int count, double @ref)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40562,7 +44924,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double @ref, ImPlotStemsFlags flags)
+#else
         public static void PlotStems(string label_id, ref ulong xs, ref ulong ys, int count, double @ref, ImPlotStemsFlags flags)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40596,7 +44962,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#else
         public static void PlotStems(string label_id, ref ulong xs, ref ulong ys, int count, double @ref, ImPlotStemsFlags flags, int offset)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40629,7 +44999,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotStems(ReadOnlySpan<char> label_id, ref ulong xs, ref ulong ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#else
         public static void PlotStems(string label_id, ref ulong xs, ref ulong ys, int count, double @ref, ImPlotStemsFlags flags, int offset, int stride)
+#endif
         {
             byte* native_label_id;
             int label_id_byteCount = 0;
@@ -40661,7 +45035,11 @@ namespace ImPlotNET
                 }
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotText(ReadOnlySpan<char> text, double x, double y)
+#else
         public static void PlotText(string text, double x, double y)
+#endif
         {
             byte* native_text;
             int text_byteCount = 0;
@@ -40689,7 +45067,11 @@ namespace ImPlotNET
                 Util.Free(native_text);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotText(ReadOnlySpan<char> text, double x, double y, Vector2 pix_offset)
+#else
         public static void PlotText(string text, double x, double y, Vector2 pix_offset)
+#endif
         {
             byte* native_text;
             int text_byteCount = 0;
@@ -40716,7 +45098,11 @@ namespace ImPlotNET
                 Util.Free(native_text);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PlotText(ReadOnlySpan<char> text, double x, double y, Vector2 pix_offset, ImPlotTextFlags flags)
+#else
         public static void PlotText(string text, double x, double y, Vector2 pix_offset, ImPlotTextFlags flags)
+#endif
         {
             byte* native_text;
             int text_byteCount = 0;
@@ -40819,7 +45205,11 @@ namespace ImPlotNET
         {
             ImPlotNative.ImPlot_PushColormap_PlotColormap(cmap);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void PushColormap(ReadOnlySpan<char> name)
+#else
         public static void PushColormap(string name)
+#endif
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -41030,7 +45420,11 @@ namespace ImPlotNET
         {
             ImPlotNative.ImPlot_SetNextMarkerStyle(marker, size, fill, weight, outline);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void SetupAxes(ReadOnlySpan<char> x_label, ReadOnlySpan<char> y_label)
+#else
         public static void SetupAxes(string x_label, string y_label)
+#endif
         {
             byte* native_x_label;
             int x_label_byteCount = 0;
@@ -41080,7 +45474,11 @@ namespace ImPlotNET
                 Util.Free(native_y_label);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void SetupAxes(ReadOnlySpan<char> x_label, ReadOnlySpan<char> y_label, ImPlotAxisFlags x_flags)
+#else
         public static void SetupAxes(string x_label, string y_label, ImPlotAxisFlags x_flags)
+#endif
         {
             byte* native_x_label;
             int x_label_byteCount = 0;
@@ -41129,7 +45527,11 @@ namespace ImPlotNET
                 Util.Free(native_y_label);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void SetupAxes(ReadOnlySpan<char> x_label, ReadOnlySpan<char> y_label, ImPlotAxisFlags x_flags, ImPlotAxisFlags y_flags)
+#else
         public static void SetupAxes(string x_label, string y_label, ImPlotAxisFlags x_flags, ImPlotAxisFlags y_flags)
+#endif
         {
             byte* native_x_label;
             int x_label_byteCount = 0;
@@ -41192,7 +45594,11 @@ namespace ImPlotNET
             ImPlotAxisFlags flags = (ImPlotAxisFlags)0;
             ImPlotNative.ImPlot_SetupAxis(axis, native_label, flags);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void SetupAxis(ImAxis axis, ReadOnlySpan<char> label)
+#else
         public static void SetupAxis(ImAxis axis, string label)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -41219,7 +45625,11 @@ namespace ImPlotNET
                 Util.Free(native_label);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void SetupAxis(ImAxis axis, ReadOnlySpan<char> label, ImPlotAxisFlags flags)
+#else
         public static void SetupAxis(ImAxis axis, string label, ImPlotAxisFlags flags)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -41245,7 +45655,11 @@ namespace ImPlotNET
                 Util.Free(native_label);
             }
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void SetupAxisFormat(ImAxis axis, ReadOnlySpan<char> fmt)
+#else
         public static void SetupAxisFormat(ImAxis axis, string fmt)
+#endif
         {
             byte* native_fmt;
             int fmt_byteCount = 0;
@@ -41493,7 +45907,11 @@ namespace ImPlotNET
         {
             ImPlotNative.ImPlot_SetupMouseText(location, flags);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ShowColormapSelector(ReadOnlySpan<char> label)
+#else
         public static bool ShowColormapSelector(string label)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -41532,7 +45950,11 @@ namespace ImPlotNET
             ImPlotNative.ImPlot_ShowDemoWindow(native_p_open);
             p_open = native_p_open_val != 0;
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ShowInputMapSelector(ReadOnlySpan<char> label)
+#else
         public static bool ShowInputMapSelector(string label)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -41581,7 +46003,11 @@ namespace ImPlotNET
             ImPlotStyle* native_ref = @ref.NativePtr;
             ImPlotNative.ImPlot_ShowStyleEditor(native_ref);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static bool ShowStyleSelector(ReadOnlySpan<char> label)
+#else
         public static bool ShowStyleSelector(string label)
+#endif
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -41662,7 +46088,11 @@ namespace ImPlotNET
             byte native_round = round ? (byte)1 : (byte)0;
             ImPlotNative.ImPlot_TagX_Bool(x, col, native_round);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void TagX(double x, Vector4 col, ReadOnlySpan<char> fmt)
+#else
         public static void TagX(double x, Vector4 col, string fmt)
+#endif
         {
             byte* native_fmt;
             int fmt_byteCount = 0;
@@ -41698,7 +46128,11 @@ namespace ImPlotNET
             byte native_round = round ? (byte)1 : (byte)0;
             ImPlotNative.ImPlot_TagY_Bool(y, col, native_round);
         }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
+        public static void TagY(double y, Vector4 col, ReadOnlySpan<char> fmt)
+#else
         public static void TagY(double y, Vector4 col, string fmt)
+#endif
         {
             byte* native_fmt;
             int fmt_byteCount = 0;

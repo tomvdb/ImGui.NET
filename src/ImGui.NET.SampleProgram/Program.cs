@@ -87,6 +87,19 @@ namespace ImGuiNET
             // show implot demo window
             ImPlot.ShowDemoWindow();
 
+            float[] bar_data = new float[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            ImGui.SetNextWindowSize(new Vector2(500,500));
+
+            ImGui.Begin("Graph Test Window");
+            if (ImPlot.BeginPlot("Test Plot"))
+            {
+                ImPlot.PlotBars("My Bar Plot", ref bar_data[0], 11);
+                ImPlot.EndPlot();
+            }
+            ImGui.End();
+
+
             // Demo code adapted from the official Dear ImGui demo program:
             // https://github.com/ocornut/imgui/blob/master/examples/example_win32_directx11/main.cpp#L172
 
